@@ -21,9 +21,10 @@ function runTimer() {
             document.querySelector("#timer").textContent = timer
         } else {
             clearInterval(setTime);
-            document.querySelector("#bubble-bottom").innerHTML = `<div>
+            document.querySelector("#bubble-bottom").innerHTML = `<div id="re-div">
                                                                     <h1>Time Over</h1>
                                                                     <h2>Your Total Score: ${score}
+                                                                    <a href= "index.html"><p id="rematch">Rematch</p></a>
                                                                   </div>`;
             document.querySelector("#hit").innerHTML = "";
             document.querySelector("#score").innerHTML = "";
@@ -51,6 +52,9 @@ document.querySelector("#bubble-bottom").addEventListener("click", function(det)
     }
 })
 
-randomHit();
-runTimer();
-showBubbles();
+document.querySelector("#btn").addEventListener("click", function() {
+    document.querySelector("#start-div").style.display = "none";
+    showBubbles();
+    randomHit();
+    runTimer();
+})

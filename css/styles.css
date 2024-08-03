@@ -15,6 +15,7 @@ main {
 }
 
 #bubble-container {
+    position: relative;
     width: 80%;
     height: 80%;
     background-color: darkgray;
@@ -62,4 +63,53 @@ main {
 
 #bubble:hover {
     background-color: rgb(18, 142, 138);
+}
+
+#start-div {
+    display: block;
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(18px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#start-div button {
+    width: 200px;
+    height: 80px;
+    font-size: 2rem;
+    font-weight: 400;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(182, 227, 225);
+    cursor: pointer;
+    transition: 0.8s ease-out;
+}
+
+#start-div button:hover {
+    background-color: rgb(101, 196, 191);
+    color: rgba(255, 255, 255, 0.779);
+}
+
+#start-div button:active {
+    scale: 1.1;
+}
+
+#rematch {
+    margin-top: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: rgb(18, 55, 97);
+}
+
+#re-div a {
+    text-decoration: none;
+    color: black;
 }
