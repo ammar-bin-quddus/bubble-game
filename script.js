@@ -1,3 +1,7 @@
+let timer = 60;
+let hitNum = 0;
+let score = 0;
+
 function showBubbles() {
     let clutter = "";
 
@@ -10,4 +14,43 @@ function showBubbles() {
     }
 }
 
+function runTimer() {
+    let setTime = setInterval(function() {
+        if (timer > 0) {
+            timer--;
+            document.querySelector("#timer").textContent = timer
+        } else {
+            clearInterval(setTime);
+            document.querySelector("#bubble-bottom").innerHTML = `<div>
+                                                                    <h1>Time Over</h1>
+                                                                    <h2>Your Total Score: ${score}
+                                                                  </div>`;
+            document.querySelector("#hit").innerHTML = "";
+            document.querySelector("#score").innerHTML = "";
+        }
+    }, 1000)
+}
+
+
+function randomHit() {
+    hitNum = Math.floor(Math.random() * 10);
+    document.querySelector("#hit").innerHTML = hitNum;
+}
+
+function addScore() {
+    score += 10;
+    document.querySelector("#score").textContent = score;
+}
+
+document.querySelector("#bubble-bottom").addEventListener("click", function(det) {
+    let targetBubble = Number(det.target.textContent);
+    if (targetBubble === hitNum) {
+        addScore();
+        showBubbles();
+        randomHit();
+    }
+})
+
+randomHit();
+runTimer();
 showBubbles();
